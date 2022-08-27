@@ -3,6 +3,7 @@ import os
 from helpers import helpers
 from flask import (
     Flask,
+    jsonify,
     redirect,
     render_template,
     request,
@@ -40,36 +41,57 @@ if config.db_name not in os.listdir():
 
 @app.route("/",methods=["GET", "POST"])
 def index():
-    username = request.form.get("username",None)
-    link = request.form.get("link",None)
-    
-    if not username:
-        flash("Username Is Empty")
+
+    if request.method == "GET":
         return render_template("index.html")
-    if not link:
-        flash("link Is Empty")
+
+    if request.method == "POST":
+        username = request.form.get("username",None)
+        link = request.form.get("link",None)
+
+        if not username:
+            flash("Username Is Empty")
+            return render_template("index.html")
+        if not link:
+            flash("link Is Empty")
+            return render_template("index.html")
+
+        # check db for duplicate user and link
+        db_user_ans =User.query.filter(User.username==username and User.link == username).first()
+        if db_user_ans:
+            return helpers.response("This User Name and Link is Exists Create with New Username")
+
+        # add User to db
+        new_User = User(username=username,link=link)
+        db.session.add(new_User)
+        db.session.commit()
+
+        # create url for link 
+        url =  helpers.create_random_url()
+        # add to db link and short link 
+        new_link = Link(id_users = new_User.id, link_short=url)
+        db.session.add(new_link)
+        db.session.commit()
+
+        flash(f"Link Created Successfully, https://alisharify.pythonanywhere.com/L/{url}")
         return render_template("index.html")
+
+
+@app.route('/L/<url>')
+def search(url):
+    if not url:
+        return jsonify("Error 83")
+
+    #  query to link to find link
+    new_link = Link.query.filter(Link.link_short == url).first()
+    if not new_link:
+        return jsonify("Error 88")
+
+    new_user = User.query.filter(User.id == new_link.id_users).first()
+    print("*" * 100)
+    print(new_user.link)
+    return redirect(f"http://{new_user.link}")
     
-    # check db for duplicate user and link
-    db_user_ans =User.query.filter(User.username==username and User.link == username).first()
-    if db_user_ans:
-        return helpers.response("This User Name and Link is Exists Create with New Username")
-
-    # add User to db
-    new_User = User(username=username,link=link)
-    db.session.add(new_User)
-    db.session.commit()
-
-
-    # create url for link 
-    url =  helpers.create_random_url()
-    # add to db link and short link 
-    new_link = Link(id_users = new_User.id, link_short=url)
-    db.session.add(new_link)
-    db.session.commit()
-
-    flash(f"Link Created Successfully, https://alisharify.pythonanywhere.com/L/{url}")
-    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run('0.0.0.0',port=8080,debug=True)
