@@ -23,5 +23,5 @@ then Just type:
       Python app.py
 
 
-by default this web app give You link on this domain alisharify.pythonanywhere.com
+###>by default this web app give You link on this domain alisharify.pythonanywhere.com
 You can change it in app.py in route /L/
