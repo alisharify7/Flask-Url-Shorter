@@ -38,7 +38,6 @@ if config.db_name not in os.listdir():
 # ------------End DB Model----------
 
 
-
 @app.route("/",methods=["GET", "POST"])
 def index():
 
@@ -91,7 +90,7 @@ def search(url):
     print("*" * 100)
     print(new_user.link)
     return redirect(f"http://{new_user.link}")
-    
+   
 
 if __name__ == "__main__":
     app.run('0.0.0.0',port=8080,debug=True)
