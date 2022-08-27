@@ -14,3 +14,10 @@ a Flask Web Application For  create Short links
   
             python3 -m venv venv
             source ./venv/bin/activate
+
+
+then Just type:
+            
+            flask run
+            or
+            Python app.py
