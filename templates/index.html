@@ -2,8 +2,8 @@
 <html lang="fa">
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@600&family=Roboto:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@600&family=Roboto:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/static/general.css">
     <link rel="stylesheet" href="/static/index/style.css">
@@ -13,11 +13,26 @@
     <title>Url Shorter</title>
 </head>
 <body>
+
     <div class="container">
         
+{% with message = get_flashed_messages(with_categories=true) %}
+    {% if message %}
+        <div class="flush_message">
+            <h4>
+                {% for error,text in message %}
+                    {{text}}
+                {% endfor %}
+            </h4>
+
+            <span class="flash_btn_close"  onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+    {% endif %}
+{%endwith%}
+
         <div class="main">
             <div class="media">
-                <h3>Shorter links make life easier</h3>
+                <h3>Shorter links make life Easier</h3>
             </div>
             <div class="media">
                 <form action="/" method="post">

@@ -19,7 +19,7 @@ body{
     padding:10px;
     height:auto;
     width:25%;
-    background-color: rgba(255,255,255,0.3);
+    background-color: rgba(255,255,255,0.4);
     border-radius: 34px 10px 34px 10px ;
 }
 
@@ -85,6 +85,27 @@ input[type=submit]{
 .sp{
     font-weight: bold;
     color: rgb(216, 33, 33);
+}
+
+.flush_message{
+    padding:10px;
+    border-radius: 20px;
+    width: 360px;
+    height:60px;
+    position:fixed;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.flash_btn_close{
+    cursor: pointer;
+    font-size: 1.3rem;
 }
 
 /* Some Query Media 1268 */
