@@ -15,7 +15,7 @@ def create_random_url():
     import random
     string_out =[]
     upper = string.ascii_lowercase
-    for i in range(1,random.randint(5,12)):
+    for i in range(1,random.randint(4,8)):
         string_out.append(upper[i])
 
     for i in range(1,random.randint(2,6)):
