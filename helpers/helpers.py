@@ -6,7 +6,6 @@ from flask import (
     flash
 )
 
-
 def response(message):
     flash(message)
     return render_template("index.html")
