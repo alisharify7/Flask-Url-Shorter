@@ -71,21 +71,5 @@ def index():
     flash(f"Link Created Successfully, https://alisharify.pythonanywhere.com/L/{url}")
     return render_template("index.html")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if __name__ == "__main__":
     app.run('0.0.0.0',port=8080,debug=True)
