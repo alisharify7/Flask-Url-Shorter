@@ -1,0 +1,13 @@
+:root{
+    --middle-width:360px;
+    --middle-height:360px;
+}
+
+
+* {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@600&family=Roboto:ital,wght@0,400;1,900&display=swap');
