@@ -7,9 +7,8 @@ class Config:
     
 
 class Development(Config):
-    secret_key = b'_5#y2L"F4Q8z\n\xec]/'
     DEBUG=True
-        FLASK_DEBUG=True
+    FLASK_DEBUG=True
 
 
 class Production(Config):
