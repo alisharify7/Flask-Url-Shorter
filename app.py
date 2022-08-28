@@ -72,7 +72,7 @@ def index():
         db.session.add(new_link)
         db.session.commit()
 
-        flash(f"Link Created Successfully, https://alisharify.pythonanywhere.com/L/{url}")
+        flash(f"Link Created Successfully, {config.host}/L/{url}")
         return render_template("index.html")
 
 
