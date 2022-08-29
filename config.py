@@ -1,6 +1,5 @@
 db_name="app.db"
-port=8080 
-host=f"http://127.0.0.1:{port}"
+host=f"http://127.0.0.1:5000"
 
 class Config:
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{db_name}"
