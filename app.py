@@ -87,8 +87,6 @@ def search(url):
         return jsonify("Error 88")
 
     new_user = User.query.filter(User.id == new_link.id_users).first()
-    print("*" * 100)
-    print(new_user.link)
     return redirect(f"http://{new_user.link}")
    
 

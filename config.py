@@ -1,10 +1,11 @@
 db_name="app.db"
-host="127.0.0.1:5000/"
+# set on default in flask 
+host="https://127.0.0.1:5000/"
 
 class Config:
     SQLALCHEMY_DATABASE_URI = f"sqlite:///{db_name}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+    SECRET_KEY = b'_5#y2L"F4Q8z\n\xec]/'
     
 
 class Development(Config):
