@@ -11,8 +11,7 @@ from flask import (
 )
 
 app = Flask(__name__)
-app.config.from_object(config.Development)
-
+app.config.from_object(config.Production)
 
 #  -----------DB Model------------
 import  datetime
@@ -84,7 +83,7 @@ def search(url):
     #  query to link to find link
     new_link = Link.query.filter(Link.link_short == url).first()
     if not new_link:
-        return jsonify("Error 88")
+        return jsonify("Invalid Link :(")
 
     new_user = User.query.filter(User.id == new_link.id_users).first()
     return redirect(f"http://{new_user.link}")
