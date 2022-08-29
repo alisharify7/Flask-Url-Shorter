@@ -23,8 +23,7 @@ then Just type:
       Python app.py
 
 
-### >by default this web app give You link on this domain alisharify.pythonanywhere.com
-You can change it in app.py in route /L/
+### >by default this web App set on 127.0.0.1:8080 You can change it from config file
 
 
 
