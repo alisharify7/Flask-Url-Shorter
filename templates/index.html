@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
+    <-! 
+        dev github: alisharify7
+    -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@600&family=Roboto:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
@@ -13,9 +16,7 @@
     <title>Url Shorter</title>
 </head>
 <body>
-
-    <div class="container">
-        
+<div class="container">
 {% with message = get_flashed_messages(with_categories=true) %}
     {% if message %}
         <div class="flush_message">
@@ -24,12 +25,10 @@
                     {{text}}
                 {% endfor %}
             </h4>
-
             <span class="flash_btn_close"  onclick="this.parentElement.style.display='none';">&times;</span>
         </div>
     {% endif %}
 {%endwith%}
-
         <div class="main">
             <div class="media">
                 <h3>Shorter links make life Easier</h3>
@@ -49,11 +48,8 @@
                 <span class="low-low">
                         <span class="sp">1.For Example: </span> <u>https://www.google.com</u>   <br> 
                         <span class="sp">2.Correct Way</span> : <u>www.google.com</u>
-                    </span>
-                
-
+                </span>
                 <span class="love-here" >Development With <span style="color:red;">&#10084;</span> </span>
-                
                 <div>
                     <a class="social-connection" href="https://github.com/alisharify7">
                         <i class="bi bi-github"></i>
@@ -62,10 +58,8 @@
                         <i class="bi bi-twitter"></i>
                     </a>
                 </div>
-
             </div>
         </div>
-    
     </div>
 </body>
 </html>
