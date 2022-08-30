@@ -64,8 +64,9 @@ def index():
         db.session.add(new_User)
         db.session.commit()
 
-        # create url for link 
+        # create SHort-url for link 
         url =  helpers.create_random_url()
+        
         # add to db link and short link 
         new_link = Link(id_users = new_User.id, link_short=url)
         db.session.add(new_link)
@@ -80,7 +81,7 @@ def search(url):
     if not url:
         return jsonify("Error 83")
 
-    #  query to link to find link
+    #  query to link_DB to find original link
     new_link = Link.query.filter(Link.link_short == url).first()
     if not new_link:
         return jsonify("Invalid Link :(")
