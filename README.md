@@ -1,5 +1,5 @@
-# Url-Shorter
-a Flask Web Application For  create Short links
+# Flask Url Shorter
+a Flask Web Application For create Short links
 
 
 ## For Run
