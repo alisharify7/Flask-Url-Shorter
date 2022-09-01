@@ -47,10 +47,10 @@ def index():
         username = request.form.get("username",None)
         link = request.form.get("link",None)
 
-        if not username:
+        if not username.strip():
             flash("Username Is Empty")
             return render_template("index.html")
-        if not link:
+        if not link.strip():
             flash("link Is Empty")
             return render_template("index.html")
 
@@ -78,7 +78,7 @@ def index():
 
 @app.route('/L/<url>')
 def search(url):
-    if not url:
+    if not url.strip():
         return jsonify("Error 83")
 
     #  query to link_DB to find original link
